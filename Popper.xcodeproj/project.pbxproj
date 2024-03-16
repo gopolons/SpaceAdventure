@@ -185,6 +185,7 @@
 				TargetAttributes = {
 					9AD568952BA1F0D900B341EF = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -338,6 +339,7 @@
 		9AD5689E2BA1F0D900B341EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5BC8W6JH5G;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -347,12 +349,15 @@
 					/opt/homebrew/Cellar/sfml/2.6.1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		9AD5689F2BA1F0D900B341EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5BC8W6JH5G;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -362,6 +367,7 @@
 					/opt/homebrew/Cellar/sfml/2.6.1/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

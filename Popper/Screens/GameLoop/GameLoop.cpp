@@ -17,7 +17,6 @@ float convertToRadians(float degree) {
     return (degree * (pi / 180));
 }
 
-
 GameLoop::GameLoop(sf::RenderWindow& window) : window(window) {
     sf::Vector2u windowCenter = window.getSize();
     shipPosition = sf::Vector2f((windowCenter.x / 2), (windowCenter.y / 2));
@@ -69,8 +68,8 @@ void GameLoop::handleInput() {
 }
 
 void GameLoop::drawSpaceshipSprite() {
-    // Create spaceship sprite
-    sf::Sprite spaceshipSprite;
+    // Create spaceship shadow
+    sf::Sprite spaceshipShadowSprite;
     
     // Create spaceship texture
     sf::Texture spaceshipTexture;
@@ -78,6 +77,35 @@ void GameLoop::drawSpaceshipSprite() {
         std::cerr << "Failed to load spaceship sprite!" << std::endl;
         return;
     }
+    
+    // Set color and alpha on the shadow sprite
+    sf::Color shadowColor = sf::Color::Black;
+    shadowColor.a = 50;
+    spaceshipShadowSprite.setColor(shadowColor);
+    
+    // Set texture on the shadow sprite
+    spaceshipShadowSprite.setTexture(spaceshipTexture);
+    
+    // Set texture in the middle of the sprite
+    sf::FloatRect shadowSpriteCenter = spaceshipShadowSprite.getLocalBounds();
+    spaceshipShadowSprite.setOrigin(sf::Vector2f((shadowSpriteCenter.width / 2), (shadowSpriteCenter.height / 2)));
+    
+    // Set shadow scale
+    spaceshipShadowSprite.setScale(0.1, 0.1);
+    
+    // Position the shadow on the screen
+    sf::Vector2f shadowPosition;
+    shadowPosition = shipPosition;
+    shadowPosition.y += 25;
+    shadowPosition.x += 25;
+    spaceshipShadowSprite.setPosition(shadowPosition);
+    spaceshipShadowSprite.rotate(shipAngle);
+    
+    // Draw the sprite on the screen
+    window.draw(spaceshipShadowSprite);
+    
+    // Create spaceship sprite
+    sf::Sprite spaceshipSprite;
     
     // Set texture on the sprite
     spaceshipSprite.setTexture(spaceshipTexture);
@@ -91,7 +119,6 @@ void GameLoop::drawSpaceshipSprite() {
     
     // Position the spaceship on the screen
     spaceshipSprite.setPosition(shipPosition);
-    
     spaceshipSprite.rotate(shipAngle);
     
     // Draw the sprite on the screen
