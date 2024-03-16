@@ -10,7 +10,7 @@
 #ifndef ResourceContainer_h
 #define ResourceContainer_h
 
-const static std::string FONT_PATH = "/Users/georgiipolonskii/Development/cpp_game/Popper/Resources/Fonts/arial.ttf";
-const static std::string SPACESHIP_PATH = "/Users/georgiipolonskii/Development/cpp_game/Popper/Resources/Images/spaceship.png";
+const static std::string FONT_PATH = "/Users/georgypolonskiy/Development/cpp_game/Popper/Resources/Fonts/arial.ttf";
+const static std::string SPACESHIP_PATH = "/Users/georgypolonskiy/Development/cpp_game/Popper/Resources/Images/spaceship.png";
 
 #endif /* ResourceContainer_h */
