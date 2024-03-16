@@ -23,7 +23,7 @@ private:
     
     void handleInput();
     
-    void drawSpaceshipSprite(sf::Sprite& spaceshipSprite);
+    void drawSpaceshipSprite();
 };
 
 #endif /* GameLoop_hpp */

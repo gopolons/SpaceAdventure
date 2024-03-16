@@ -68,7 +68,10 @@ void GameLoop::handleInput() {
     }
 }
 
-void GameLoop::drawSpaceshipSprite(sf::Sprite& spaceshipSprite) {
+void GameLoop::drawSpaceshipSprite() {
+    // Create spaceship sprite
+    sf::Sprite spaceshipSprite;
+    
     // Create spaceship texture
     sf::Texture spaceshipTexture;
     if (!spaceshipTexture.loadFromFile(SPACESHIP_PATH)) {
@@ -89,6 +92,8 @@ void GameLoop::drawSpaceshipSprite(sf::Sprite& spaceshipSprite) {
     // Position the spaceship on the screen
     spaceshipSprite.setPosition(shipPosition);
     
+    spaceshipSprite.rotate(shipAngle);
+    
     // Draw the sprite on the screen
     window.draw(spaceshipSprite);
 }
@@ -96,16 +101,12 @@ void GameLoop::drawSpaceshipSprite(sf::Sprite& spaceshipSprite) {
 void GameLoop::startGame() {
     // Clear any existing window content
     window.clear(sf::Color::White);
-    
-    // Create spaceship sprite
-    sf::Sprite spaceshipSprite;
      
     // Handle user input
     handleInput();
-    spaceshipSprite.rotate(shipAngle);
     
     // Draw spaceship sprite
-    drawSpaceshipSprite(spaceshipSprite);
+    drawSpaceshipSprite();
    
     // Display the window contents
     window.display();
