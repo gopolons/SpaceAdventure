@@ -339,7 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DZGUF52KN2;
+				DEVELOPMENT_TEAM = 5BC8W6JH5G;
 				ENABLE_HARDENED_RUNTIME = NO;
 				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/sfml/2.6.1/include;
 				LIBRARY_SEARCH_PATHS = (
@@ -354,7 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DZGUF52KN2;
+				DEVELOPMENT_TEAM = 5BC8W6JH5G;
 				ENABLE_HARDENED_RUNTIME = NO;
 				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/sfml/2.6.1/include;
 				LIBRARY_SEARCH_PATHS = (
