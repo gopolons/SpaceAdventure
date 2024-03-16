@@ -23,7 +23,7 @@ GameLoop::GameLoop(sf::RenderWindow& window) : window(window) {
     shipPosition = sf::Vector2f((windowCenter.x / 2), (windowCenter.y / 2));
 }
 
-void GameLoop::handleInput(sf::Sprite& spaceshipSprite) {
+void GameLoop::handleInput() {
     // Apply rotation to angle property
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
         shipAngle -= 0.25;
@@ -72,7 +72,7 @@ void GameLoop::drawSpaceshipSprite(sf::Sprite& spaceshipSprite) {
     // Create spaceship texture
     sf::Texture spaceshipTexture;
     if (!spaceshipTexture.loadFromFile(SPACESHIP_PATH)) {
-        std::cerr << "Failed to load font!" << std::endl;
+        std::cerr << "Failed to load spaceship sprite!" << std::endl;
         return;
     }
     
@@ -101,7 +101,7 @@ void GameLoop::startGame() {
     sf::Sprite spaceshipSprite;
      
     // Handle user input
-    handleInput(spaceshipSprite);
+    handleInput();
     spaceshipSprite.rotate(shipAngle);
     
     // Draw spaceship sprite

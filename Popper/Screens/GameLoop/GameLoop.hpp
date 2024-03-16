@@ -21,7 +21,7 @@ private:
     float shipAngle = 0;
     sf::Vector2f shipPosition;
     
-    void handleInput(sf::Sprite& spaceshipSprite);
+    void handleInput();
     
     void drawSpaceshipSprite(sf::Sprite& spaceshipSprite);
 };
