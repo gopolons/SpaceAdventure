@@ -10,7 +10,9 @@
 
 #include <SFML/Graphics.hpp>
 
-class MainMenu {
+#include "InputDelegate.hpp"
+
+class MainMenu : public InputDelegate {
 public:
     MainMenu(sf::RenderWindow& window);
     
