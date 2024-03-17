@@ -172,6 +172,23 @@ void GameLoop::drawProjectileSprites() {
         
         // Draw projectile shape on the screen
         window.draw(projectile);
+        
+        // Iterate through the asteroids vector
+        std::vector<SpaceshipProjectile>::iterator asterIter = asteroids.begin(); // Declaration of vector iterator
+        for (  ; asterIter < asteroids.end(); asterIter++) {
+            // Check if the projectile is inside the position bounds of the asteroid
+            // If yes, remove the asteroid from the vector
+            float topBound = asterIter->currentPosition.y - 25;
+            float leftBound = asterIter->currentPosition.x - 25;
+            
+            sf::Rect<float> asterBoundRect( leftBound, topBound, 50, 50 );
+            
+            if (asterBoundRect.intersects(projectile.getGlobalBounds())) {
+                asteroids.erase(asterIter);
+                projectiles.erase(iter);
+                break;
+            }
+        }
     }
 }
 
