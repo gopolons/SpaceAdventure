@@ -9,16 +9,19 @@
 #define GameLoop_hpp
 
 #include <SFML/Graphics.hpp>
-#include <stdlib.h>
 
 #include "Projectile.hpp"
+#include "InputDelegate.hpp"
 
-class GameLoop {
+class GameLoop : public InputDelegate {
 public:
     GameLoop(sf::RenderWindow& window);
     
     void startGame();
-    void handleUserShot();
+    
+    void handleActionButton() override;
+    void handleLeftButton() override;
+    void handleRightButton() override;
 private:
     sf::RenderWindow& window;
     
@@ -29,11 +32,21 @@ private:
     sf::Clock asteroidClock;
     std::vector<Projectile> asteroids{};
     
-    void handleInput();
+    void updateShipPosition();
     
     void drawSpaceshipSprite();
     void drawProjectileSprites();
     void drawAsteroidSprites();
+    
+    float screenRightEdge;
+    float screenLeftEdge;
+    float screenTopEdge;
+    float screenBottomEdge;
+
+    sf::Vector2f bottomLeftCorner;
+    sf::Vector2f bottomRightCorner;
+    sf::Vector2f topLeftCorner;
+    sf::Vector2f topRightCorner;
 };
 
 #endif /* GameLoop_hpp */

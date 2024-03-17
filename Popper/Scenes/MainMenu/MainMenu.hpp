@@ -12,7 +12,11 @@
 
 class MainMenu {
 public:
-    void drawTitle(sf::RenderWindow& window);
+    MainMenu(sf::RenderWindow& window);
+    
+    void drawTitleMenu();
+private:
+    sf::RenderWindow& window;
 };
 
 #endif /* MainMenu_hpp */

@@ -11,16 +11,24 @@
 
 #include "MainMenu.hpp"
 #include "GameLoop.hpp"
+#include "InputManager.hpp"
+#include "SceneManager.hpp"
 
 int main() {
     // Create a window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Popper");
-
+    
     // Instantiate a main menu object
-    MainMenu menu;
+    MainMenu menu(window);
     
     // Instantiate a game loop object
     GameLoop game(window);
+    
+    // Instantiate an input manager object
+    InputManager inputManager(&game);
+    
+    // Instantiate a scene manager object
+    SceneManager sceneManager(window, menu, game);
     
     // Main loop
     while (window.isOpen()) {
@@ -31,20 +39,14 @@ int main() {
                 case sf::Event::Closed:
                     window.close();
                     break;
-                case sf::Event::KeyPressed:
-                    if (event.key.code == sf::Keyboard::Space) {
-                        game.handleUserShot();
-                    }
-                    break;
                 default:
+                    inputManager.handleEvent(event);
                     break;
             }
         }
         
-        game.startGame();
-        
-        // Display the main menu title
-        // menu.draw_title(window);
+        inputManager.pollInput();
+        sceneManager.updateScene(GameScene::Game);
     }
 
     return 0;

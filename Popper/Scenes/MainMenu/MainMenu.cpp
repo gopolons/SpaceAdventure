@@ -5,13 +5,14 @@
 //  Created by Georgii Polonskii on 13/03/2024.
 //
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
 #include "ResourceContainer.hpp"
 #include "MainMenu.hpp"
 
-void MainMenu::drawTitle(sf::RenderWindow& window) {
+MainMenu::MainMenu(sf::RenderWindow& window) : window(window) {}
+
+void MainMenu::drawTitleMenu() {
     // Clear any existing content on the window
     window.clear(sf::Color::Black);
     

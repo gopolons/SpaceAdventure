@@ -5,13 +5,11 @@
 //  Created by Georgii Polonskii on 13/03/2024.
 //
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cmath>
 
 #include "GameLoop.hpp"
 #include "ResourceContainer.hpp"
-#include "Projectile.hpp"
 
 float convertToRadians(float degree) {
     double pi = 3.14159265359;
@@ -21,24 +19,33 @@ float convertToRadians(float degree) {
 GameLoop::GameLoop(sf::RenderWindow& window) : window(window) {
     sf::Vector2u windowCenter = window.getSize();
     shipPosition = sf::Vector2f((windowCenter.x / 2), (windowCenter.y / 2));
+    
+    screenRightEdge = window.getSize().x;
+    screenLeftEdge = 0;
+    screenTopEdge = window.getSize().y;
+    screenBottomEdge = 0;
+    
+    bottomLeftCorner = sf::Vector2f{ screenLeftEdge, screenBottomEdge };
+    bottomRightCorner = sf::Vector2f{ screenRightEdge, screenBottomEdge };
+    topLeftCorner = sf::Vector2f{ screenLeftEdge, screenTopEdge };
+    topRightCorner = sf::Vector2f{ screenRightEdge, screenTopEdge };
 }
 
-void GameLoop::handleUserShot() {
+void GameLoop::handleActionButton() {
     // Create projectiles if shoot button is pressed
     Projectile projectile{ shipAngle, shipPosition, shipPosition };
     projectiles.push_back(projectile);
 }
 
-void GameLoop::handleInput() {
-    // Apply rotation to angle property
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        shipAngle -= 0.25;
-    }
-    
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        shipAngle += 0.25;
-    }
-    
+void GameLoop::handleLeftButton() {
+    shipAngle -= 0.25;
+}
+
+void GameLoop::handleRightButton() {
+    shipAngle += 0.25;
+}
+
+void GameLoop::updateShipPosition() {
     // Calculate and update the ship's position
     sf::Vector2f newPosition;
     float speed = 0.3;
@@ -52,12 +59,6 @@ void GameLoop::handleInput() {
     shipPosition = newPosition;
     
     // Implement screen wrapping
-    int screenRightEdge = window.getSize().x;
-    int screenLeftEdge = 0;
-    
-    int screenTopEdge = window.getSize().y;
-    int screenBottomEdge = 0;
-    
     if (shipPosition.x > screenRightEdge) {
         shipPosition.x = screenLeftEdge;
     }
@@ -137,12 +138,7 @@ void GameLoop::drawProjectileSprites() {
     // Iterate through the projectile vector
     std::vector<Projectile>::iterator iter = projectiles.begin(); // Declaration of vector iterator
     
-    // Declare window bounds
-    int screenRightEdge = window.getSize().x;
-    int screenLeftEdge = 0;
-    int screenTopEdge = window.getSize().y;
-    int screenBottomEdge = 0;
-    
+
     for (  ; iter < projectiles.end(); iter++) {
         // Check if projectile still on screen & remove if not
         if ((iter->currentPosition.x > screenRightEdge) || (iter->currentPosition.x < screenLeftEdge) || (iter->currentPosition.y > screenTopEdge) || (iter->currentPosition.y < screenBottomEdge)) {
@@ -193,12 +189,6 @@ void GameLoop::drawProjectileSprites() {
 }
 
 void GameLoop::drawAsteroidSprites() {
-    // Declare window bounds
-    float screenRightEdge = window.getSize().x;
-    float screenLeftEdge = 0;
-    float screenTopEdge = window.getSize().y;
-    float screenBottomEdge = 0;
-    
     // Get the elapsed time and cast it to int
     int elapsedTime = asteroidClock.getElapsedTime().asSeconds();
     
@@ -206,12 +196,6 @@ void GameLoop::drawAsteroidSprites() {
     if (elapsedTime == 5) {
         // Reset the timer
         asteroidClock.restart();
-        
-        // Declare screen corners
-        sf::Vector2f bottomLeftCorner{ screenLeftEdge, screenBottomEdge };
-        sf::Vector2f bottomRightCorner{ screenRightEdge, screenBottomEdge };
-        sf::Vector2f topLeftCorner{ screenLeftEdge, screenTopEdge };
-        sf::Vector2f topRightCorner{ screenRightEdge, screenTopEdge };
         
         // Get a random angle
         float angle = rand() % 360;
@@ -324,8 +308,8 @@ void GameLoop::startGame() {
     // Clear any existing window content
     window.clear(sf::Color::White);
      
-    // Handle user input
-    handleInput();
+    // Update ship position
+    updateShipPosition();
     
     // Draw projectile sprites
     drawProjectileSprites();
