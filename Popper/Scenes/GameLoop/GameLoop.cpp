@@ -299,8 +299,8 @@ void GameLoop::drawAsteroidSprites() {
         asteroidSprite.rotate(iter->angle);
         
         // Draw the sprite on the screen
-        window.draw(asteroidSprite);
         window.draw(asteroidShadowSprite);
+        window.draw(asteroidSprite);
     }
 }
 
@@ -314,11 +314,11 @@ void GameLoop::startGame() {
     // Draw projectile sprites
     drawProjectileSprites();
     
-    // Draw spaceship sprite
-    drawSpaceshipSprite();
-    
     // Draw asteroid sprites
     drawAsteroidSprites();
+    
+    // Draw spaceship sprite
+    drawSpaceshipSprite();
    
     // Display the window contents
     window.display();

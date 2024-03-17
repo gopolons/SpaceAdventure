@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		947D64AD2BA798DC00EA2AB2 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 947D64AB2BA798DC00EA2AB2 /* SceneManager.cpp */; };
 		947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 947D64B02BA7990D00EA2AB2 /* InputManager.cpp */; };
 		9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AD568992BA1F0D900B341EF /* main.cpp */; };
 		9AD568A62BA1F0F400B341EF /* libsfml-graphics.2.6.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD568A12BA1F0F400B341EF /* libsfml-graphics.2.6.1.dylib */; };
@@ -34,8 +33,6 @@
 /* Begin PBXFileReference section */
 		947D64A62BA660BB00EA2AB2 /* Projectile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Projectile.hpp; sourceTree = "<group>"; };
 		947D64A92BA74A1100EA2AB2 /* asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid.png; sourceTree = "<group>"; };
-		947D64AB2BA798DC00EA2AB2 /* SceneManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
-		947D64AC2BA798DC00EA2AB2 /* SceneManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		947D64B02BA7990D00EA2AB2 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
 		947D64B12BA7990D00EA2AB2 /* InputManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputManager.hpp; sourceTree = "<group>"; };
 		947D64B42BA79A5E00EA2AB2 /* InputDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputDelegate.hpp; sourceTree = "<group>"; };
@@ -85,18 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				947D64AF2BA798EB00EA2AB2 /* InputManager */,
-				947D64AE2BA798E100EA2AB2 /* SceneManager */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		947D64AE2BA798E100EA2AB2 /* SceneManager */ = {
-			isa = PBXGroup;
-			children = (
-				947D64AB2BA798DC00EA2AB2 /* SceneManager.cpp */,
-				947D64AC2BA798DC00EA2AB2 /* SceneManager.hpp */,
-			);
-			path = SceneManager;
 			sourceTree = "<group>";
 		};
 		947D64AF2BA798EB00EA2AB2 /* InputManager */ = {
@@ -272,7 +259,6 @@
 			files = (
 				9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */,
 				9AD568B42BA20DE800B341EF /* MainMenu.cpp in Sources */,
-				947D64AD2BA798DC00EA2AB2 /* SceneManager.cpp in Sources */,
 				9AD568BE2BA2146000B341EF /* GameLoop.cpp in Sources */,
 				947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */,
 			);
