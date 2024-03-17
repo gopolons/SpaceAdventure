@@ -11,7 +11,7 @@
 
 #include "GameLoop.hpp"
 #include "ResourceContainer.hpp"
-#include "SpaceshipProjectile.hpp"
+#include "Projectile.hpp"
 
 float convertToRadians(float degree) {
     double pi = 3.14159265359;
@@ -25,7 +25,7 @@ GameLoop::GameLoop(sf::RenderWindow& window) : window(window) {
 
 void GameLoop::handleUserShot() {
     // Create projectiles if shoot button is pressed
-    SpaceshipProjectile projectile{ shipAngle, shipPosition, shipPosition };
+    Projectile projectile{ shipAngle, shipPosition, shipPosition };
     projectiles.push_back(projectile);
 }
 
@@ -135,7 +135,7 @@ void GameLoop::drawSpaceshipSprite() {
 
 void GameLoop::drawProjectileSprites() {
     // Iterate through the projectile vector
-    std::vector<SpaceshipProjectile>::iterator iter = projectiles.begin(); // Declaration of vector iterator
+    std::vector<Projectile>::iterator iter = projectiles.begin(); // Declaration of vector iterator
     
     // Declare window bounds
     int screenRightEdge = window.getSize().x;
@@ -174,7 +174,7 @@ void GameLoop::drawProjectileSprites() {
         window.draw(projectile);
         
         // Iterate through the asteroids vector
-        std::vector<SpaceshipProjectile>::iterator asterIter = asteroids.begin(); // Declaration of vector iterator
+        std::vector<Projectile>::iterator asterIter = asteroids.begin(); // Declaration of vector iterator
         for (  ; asterIter < asteroids.end(); asterIter++) {
             // Check if the projectile is inside the position bounds of the asteroid
             // If yes, remove the asteroid from the vector
@@ -217,7 +217,7 @@ void GameLoop::drawAsteroidSprites() {
         float angle = rand() % 360;
         
         // Create projectile variable
-        SpaceshipProjectile asteroid;
+        Projectile asteroid;
         asteroid.angle = angle;
         
         // Determine the starting quadrant based on the angle
@@ -240,7 +240,7 @@ void GameLoop::drawAsteroidSprites() {
     }
     
     // Iterate through the asteroids vector
-    std::vector<SpaceshipProjectile>::iterator iter = asteroids.begin(); // Declaration of vector iterator
+    std::vector<Projectile>::iterator iter = asteroids.begin(); // Declaration of vector iterator
     
     // Create an asteroid texture
     sf::Texture spaceshipTexture;

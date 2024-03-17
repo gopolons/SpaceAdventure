@@ -1,5 +1,5 @@
 //
-//  SpaceshipProjectile.hpp
+//  Projectile.hpp
 //  Popper
 //
 //  Created by Georgy Polonskiy on 16/03/2024.
@@ -10,7 +10,7 @@
 
 #include <SFML/Graphics.hpp>
 
-class SpaceshipProjectile {
+class Projectile {
 public:
     float angle;
     sf::Vector2f origin;

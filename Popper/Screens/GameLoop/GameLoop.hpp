@@ -11,7 +11,7 @@
 #include <SFML/Graphics.hpp>
 #include <stdlib.h>
 
-#include "SpaceshipProjectile.hpp"
+#include "Projectile.hpp"
 
 class GameLoop {
 public:
@@ -24,10 +24,10 @@ private:
     
     float shipAngle = 0;
     sf::Vector2f shipPosition;
-    std::vector<SpaceshipProjectile> projectiles{};
+    std::vector<Projectile> projectiles{};
     
     sf::Clock asteroidClock;
-    std::vector<SpaceshipProjectile> asteroids{};
+    std::vector<Projectile> asteroids{};
     
     void handleInput();
     
