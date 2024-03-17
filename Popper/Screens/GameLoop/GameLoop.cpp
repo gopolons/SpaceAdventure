@@ -11,6 +11,7 @@
 
 #include "GameLoop.hpp"
 #include "ResourceContainer.hpp"
+#include "SpaceshipProjectile.hpp"
 
 float convertToRadians(float degree) {
     double pi = 3.14159265359;
@@ -20,6 +21,12 @@ float convertToRadians(float degree) {
 GameLoop::GameLoop(sf::RenderWindow& window) : window(window) {
     sf::Vector2u windowCenter = window.getSize();
     shipPosition = sf::Vector2f((windowCenter.x / 2), (windowCenter.y / 2));
+}
+
+void GameLoop::handleUserShot() {
+    // Create projectiles if shoot button is pressed
+    SpaceshipProjectile projectile{ shipAngle, shipPosition, shipPosition };
+    projectiles.push_back(projectile);
 }
 
 void GameLoop::handleInput() {
@@ -44,6 +51,7 @@ void GameLoop::handleInput() {
     
     shipPosition = newPosition;
     
+    // Implement screen wrapping
     int screenRightEdge = window.getSize().x;
     int screenLeftEdge = 0;
     
@@ -68,6 +76,47 @@ void GameLoop::handleInput() {
 }
 
 void GameLoop::drawSpaceshipSprite() {
+    // Iterate through the projectile vector
+    std::vector<SpaceshipProjectile>::iterator iter = projectiles.begin(); // Declaration of vector iterator
+    
+    // Declare window bounds
+    int screenRightEdge = window.getSize().x;
+    int screenLeftEdge = 0;
+    
+    int screenTopEdge = window.getSize().y;
+    int screenBottomEdge = 0;
+    
+    for (  ; iter < projectiles.end(); iter++) {
+        // Check if projectile still on screen & remove if not
+        if ((iter->currentPosition.x > screenRightEdge) || (iter->currentPosition.x < screenLeftEdge) || (iter->currentPosition.y > screenTopEdge) || (iter->currentPosition.y < screenBottomEdge)) {
+            projectiles.erase(iter);
+            break;
+        }
+        
+        // Create a projectile shape
+        sf::CircleShape projectile(10);
+        projectile.setFillColor(sf::Color::Green);
+        
+        sf::Vector2f currentPosition = iter->currentPosition;
+        
+        // Calculate and update the projectile's position
+        sf::Vector2f newPosition;
+        float speed = 0.5;
+        float radianAngle = convertToRadians(iter->angle);
+        float newY = currentPosition.y + speed * sin(radianAngle);
+        float newX = currentPosition.x + speed * cos(radianAngle);
+        
+        newPosition.x = newX;
+        newPosition.y = newY;
+        
+        iter->currentPosition = newPosition;
+
+        projectile.setPosition(newPosition);
+        
+        // Draw projectile shape on the screen
+        window.draw(projectile);
+    }
+    
     // Create spaceship shadow
     sf::Sprite spaceshipShadowSprite;
     
