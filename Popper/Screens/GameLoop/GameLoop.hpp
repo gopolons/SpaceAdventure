@@ -26,9 +26,14 @@ private:
     sf::Vector2f shipPosition;
     std::vector<SpaceshipProjectile> projectiles{};
     
+    sf::Clock asteroidClock;
+    std::vector<SpaceshipProjectile> asteroids{};
+    
     void handleInput();
     
     void drawSpaceshipSprite();
+    void drawProjectileSprites();
+    void drawAsteroidSprites();
 };
 
 #endif /* GameLoop_hpp */

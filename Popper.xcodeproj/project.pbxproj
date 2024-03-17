@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		947D64A62BA660BB00EA2AB2 /* SpaceshipProjectile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpaceshipProjectile.hpp; sourceTree = "<group>"; };
+		947D64A92BA74A1100EA2AB2 /* asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid.png; sourceTree = "<group>"; };
 		9AD568962BA1F0D900B341EF /* Popper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Popper; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD568992BA1F0D900B341EF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9AD568A12BA1F0F400B341EF /* libsfml-graphics.2.6.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.6.1.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/2.6.1/lib/libsfml-graphics.2.6.1.dylib"; sourceTree = "<group>"; };
@@ -159,6 +160,7 @@
 		9AD568BA2BA2141300B341EF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				947D64A92BA74A1100EA2AB2 /* asteroid.png */,
 				9AD568BB2BA2141E00B341EF /* spaceship.png */,
 			);
 			path = Images;
