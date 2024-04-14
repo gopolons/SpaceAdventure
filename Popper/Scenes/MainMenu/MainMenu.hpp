@@ -11,14 +11,33 @@
 #include <SFML/Graphics.hpp>
 
 #include "InputDelegate.hpp"
+#include "SceneManagerDelegate.hpp"
+#include "SceneManager.hpp"
+#include "MenuOption.hpp"
+#include <any>
 
-class MainMenu : public InputDelegate {
+class MainMenu : public InputDelegate, public SceneManagerDelegate {
 public:
     MainMenu(sf::RenderWindow& window);
     
     void drawTitleMenu();
+    
+    void handleActionButton() override;
+    void handleUpButton() override;
+    void handleDownButton() override;
+    void handleEscapeButton() override;
+    
+    void setSceneManager(std::any manager) override;
+    void run() override;
+    InputDelegate* getInputDelegate() override;
 private:
+    MenuOption currentOption;
+    
+    SceneManager* sceneManager;
+    
     sf::RenderWindow& window;
+    
+    sf::Vector2f screenCenter;
 };
 
 #endif /* MainMenu_hpp */

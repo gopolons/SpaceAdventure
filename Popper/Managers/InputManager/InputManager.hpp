@@ -10,18 +10,17 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "SceneManager.hpp"
 #include "InputDelegate.hpp"
 
 class InputManager {
 public:
-    InputManager(InputDelegate* delegate);
+    InputManager(SceneManager* sceneManager);
     
     void handleEvent(sf::Event event);
     void pollInput();
-    
-    void updateDelegate(InputDelegate* delegate);
 private:
-    InputDelegate* delegate;
+    SceneManager* sceneManager;
 };
 
 #endif /* InputManager_hpp */

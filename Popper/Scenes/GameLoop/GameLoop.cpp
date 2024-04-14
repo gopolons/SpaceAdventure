@@ -45,6 +45,10 @@ void GameLoop::handleRightButton() {
     shipAngle += 0.25;
 }
 
+void GameLoop::handleEscapeButton() {
+    sceneManager->goToMenu();
+}
+
 void GameLoop::updateShipPosition() {
     // Calculate and update the ship's position
     sf::Vector2f newPosition;
@@ -182,6 +186,7 @@ void GameLoop::drawProjectileSprites() {
             if (asterBoundRect.intersects(projectile.getGlobalBounds())) {
                 asteroids.erase(asterIter);
                 projectiles.erase(iter);
+                gameScore += 1;
                 break;
             }
         }
@@ -304,6 +309,29 @@ void GameLoop::drawAsteroidSprites() {
     }
 }
 
+void GameLoop::drawScore() {
+    // Create a string
+    std::string scoreString = "Score: " + std::to_string(gameScore);
+    
+    // Create a font
+    sf::Font font;
+    if (!font.loadFromFile(FONT_PATH)) {
+        std::cerr << "Failed to load font!" << std::endl;
+        return;
+    }
+    
+    // Create the text object
+    sf::Text scoreText{};
+    
+    scoreText.setString(scoreString);
+    scoreText.setFont(font);
+    scoreText.setOrigin(-10, 0);
+    scoreText.setFillColor(sf::Color::Black);
+    
+    // Drag the text
+    window.draw(scoreText);
+}
+
 void GameLoop::startGame() {
     // Clear any existing window content
     window.clear(sf::Color::White);
@@ -319,7 +347,22 @@ void GameLoop::startGame() {
     
     // Draw spaceship sprite
     drawSpaceshipSprite();
+    
+    // Draw game score
+    drawScore();
    
     // Display the window contents
     window.display();
+}
+
+void GameLoop::setSceneManager(std::any manager) {
+    sceneManager = std::any_cast<SceneManager*>(manager);
+}
+
+void GameLoop::run() {
+    startGame();
+}
+
+InputDelegate* GameLoop::getInputDelegate() {
+    return (this);
 }

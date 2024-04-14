@@ -11,6 +11,7 @@
 
 #include "MainMenu.hpp"
 #include "GameLoop.hpp"
+#include "SceneManager.hpp"
 #include "InputManager.hpp"
 
 int main() {
@@ -23,8 +24,11 @@ int main() {
     // Instantiate a game loop object
     GameLoop game(window);
     
+    // Instantiate a scene manager
+    SceneManager sceneManager(&game, &menu);
+    
     // Instantiate an input manager object
-    InputManager inputManager(&game);
+    InputManager inputManager(&sceneManager);
     
     // Main loop
     while (window.isOpen()) {
@@ -42,7 +46,7 @@ int main() {
         }
         
         inputManager.pollInput();
-        game.startGame();
+        sceneManager.runActiveScene();
     }
 
     return 0;

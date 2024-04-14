@@ -10,11 +10,16 @@
 #include "ResourceContainer.hpp"
 #include "MainMenu.hpp"
 
-MainMenu::MainMenu(sf::RenderWindow& window) : window(window) {}
+MainMenu::MainMenu(sf::RenderWindow& window) : window(window) {
+    sf::Vector2u windowCenter = window.getSize();
+    screenCenter = sf::Vector2f((windowCenter.x / 2), (windowCenter.y / 2));
+    
+    currentOption = MenuOption::Play;
+}
 
 void MainMenu::drawTitleMenu() {
     // Clear any existing content on the window
-    window.clear(sf::Color::Black);
+    window.clear(sf::Color::White);
     
     // Create a font
     sf::Font font;
@@ -23,19 +28,155 @@ void MainMenu::drawTitleMenu() {
         return;
     }
 
-    // Create a text
+    // Create a title
     sf::Text title;
     title.setFont(font);
-    title.setString("Popper");
-    title.setCharacterSize(24);
-    title.setFillColor(sf::Color::White);
+    title.setString("Asteroider");
+    title.setCharacterSize(50);
+    title.setFillColor(sf::Color::Black);
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect titleCenter = title.getLocalBounds();
+    title.setOrigin(sf::Vector2f((titleCenter.width / 2), (titleCenter.height / 2)));
+    
+    // Create a game button
+    sf::Text playButton;
+    playButton.setFont(font);
+    playButton.setString("Play");
+    playButton.setCharacterSize(24);
+    playButton.setFillColor(sf::Color::Black);
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect playCenter = playButton.getLocalBounds();
+    playButton.setOrigin(sf::Vector2f((playCenter.width / 2), (playCenter.height / 2)));
+    
+    // Create an exit button
+    sf::Text exitButton;
+    exitButton.setFont(font);
+    exitButton.setString("Exit");
+    exitButton.setCharacterSize(24);
+    exitButton.setFillColor(sf::Color::Black);
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect exitCenter = exitButton.getLocalBounds();
+    exitButton.setOrigin(sf::Vector2f((exitCenter.width / 2), (exitCenter.height / 2)));
+    
+    // Create an options button
+    sf::Text optionsButton;
+    optionsButton.setFont(font);
+    optionsButton.setString("Options");
+    optionsButton.setCharacterSize(24);
+    optionsButton.setFillColor(sf::Color::Black);
 
+    // Position the text in the middle of local bounds
+    sf::FloatRect optionsCenter = optionsButton.getLocalBounds();
+    optionsButton.setOrigin(sf::Vector2f((optionsCenter.width / 2), (optionsCenter.height / 2)));
+    
+    // Create a selection indicator
+    sf::Text indicator;
+    indicator.setFont(font);
+    indicator.setString("<");
+    indicator.setCharacterSize(24);
+    indicator.setFillColor(sf::Color::Black);
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect selectorCenter = indicator.getLocalBounds();
+    indicator.setOrigin(sf::Vector2f((selectorCenter.width / 2), (selectorCenter.height / 2)));
+    
+    // Get menu elements height
+    float titleYPos = window.getSize().y/4;
+    float playButtonYPos = window.getSize().y/3 + 45;
+    float optionsButtonYPos = window.getSize().y/3 + (45 * 2);
+    float exitButtonYPos = window.getSize().y/3 + (45 * 3);
+    float indicatorYPos;
+    float indicatorXPos = screenCenter.x + 65;
+    
     // Position the text
-    title.setPosition(0, 0);
+    title.setPosition(screenCenter.x, titleYPos);
+    playButton.setPosition(screenCenter.x, playButtonYPos);
+    optionsButton.setPosition(screenCenter.x, optionsButtonYPos);
+    exitButton.setPosition(screenCenter.x, exitButtonYPos);
+    
+    // Position the indicator
+    switch (currentOption) {
+        case (MenuOption::Play):
+            indicatorYPos = playButtonYPos;
+            break;
+        case (MenuOption::Options):
+            indicatorYPos = optionsButtonYPos;
+            break;
+        case (MenuOption::Exit):
+            indicatorYPos = exitButtonYPos;
+            break;
+    }
+    
+    indicator.setPosition(indicatorXPos, indicatorYPos);
     
     // Draw the text
     window.draw(title);
+    window.draw(playButton);
+    window.draw(optionsButton);
+    window.draw(exitButton);
+    window.draw(indicator);
     
     // Display the window contents
     window.display();
+}
+
+void MainMenu::setSceneManager(std::any manager) {
+    sceneManager = std::any_cast<SceneManager*>(manager);
+}
+
+void MainMenu::run() {
+    drawTitleMenu();
+}
+
+InputDelegate* MainMenu::getInputDelegate() {
+    return (this);
+}
+
+void MainMenu::handleActionButton() {
+    switch (currentOption) {
+        case (MenuOption::Play):
+            sceneManager->goToGame();
+            return;
+        case (MenuOption::Options):
+            // FIXME: IMPLEMENT OPTIONS MENU NAVIGATION
+            return;
+        case (MenuOption::Exit):
+            window.close();
+            return;
+    }
+}
+
+void MainMenu::handleUpButton() {
+    switch (currentOption) {
+        case (MenuOption::Play):
+            currentOption = MenuOption::Exit;
+            return;
+        case (MenuOption::Options):
+            currentOption = MenuOption::Play;
+            return;
+        case (MenuOption::Exit):
+            currentOption = MenuOption::Options;
+            return;
+    }
+}
+
+void MainMenu::handleDownButton() {
+    switch (currentOption) {
+        case (MenuOption::Play):
+            currentOption = MenuOption::Options;
+            return;
+        case (MenuOption::Options):
+            currentOption = MenuOption::Exit;
+            return;
+        case (MenuOption::Exit):
+            currentOption = MenuOption::Play;
+            return;
+    }
+}
+
+void MainMenu::handleEscapeButton() {
+    window.close();
 }

@@ -12,8 +12,10 @@
 
 #include "Projectile.hpp"
 #include "InputDelegate.hpp"
+#include "SceneManagerDelegate.hpp"
+#include "SceneManager.hpp"
 
-class GameLoop : public InputDelegate {
+class GameLoop : public InputDelegate, public SceneManagerDelegate {
 public:
     GameLoop(sf::RenderWindow& window);
     
@@ -22,7 +24,16 @@ public:
     void handleActionButton() override;
     void handleLeftButton() override;
     void handleRightButton() override;
+    void handleEscapeButton() override;
+    
+    void setSceneManager(std::any manager) override;
+    void run() override;
+    InputDelegate* getInputDelegate() override;
 private:
+    SceneManager* sceneManager;
+    
+    int gameScore = 0;
+    
     sf::RenderWindow& window;
     
     float shipAngle = 0;
@@ -37,6 +48,7 @@ private:
     void drawSpaceshipSprite();
     void drawProjectileSprites();
     void drawAsteroidSprites();
+    void drawScore();
     
     float screenRightEdge;
     float screenLeftEdge;

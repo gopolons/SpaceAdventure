@@ -13,6 +13,9 @@ public:
     virtual void handleActionButton() {};
     virtual void handleLeftButton() {};
     virtual void handleRightButton() {};
+    virtual void handleUpButton() {};
+    virtual void handleDownButton() {};
+    virtual void handleEscapeButton() {};
 };
 
 #endif /* InputDelegate_hpp */
