@@ -198,7 +198,7 @@ void GameLoop::drawAsteroidSprites() {
     int elapsedTime = asteroidClock.getElapsedTime().asSeconds();
     
     // Asteroid should be added every 5 seconds
-    if (elapsedTime == 5) {
+    if (elapsedTime > 5) {
         // Reset the timer
         asteroidClock.restart();
         
