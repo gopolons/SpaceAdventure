@@ -7,11 +7,12 @@
 
 #include "SceneManager.hpp"
 
-SceneManager::SceneManager(SceneManagerDelegate* gameLoop, SceneManagerDelegate* mainMenu) : gameLoop(gameLoop), mainMenu(mainMenu) {
+SceneManager::SceneManager(SceneManagerDelegate* gameLoop, SceneManagerDelegate* mainMenu, SceneManagerDelegate* gameOver) : gameLoop(gameLoop), mainMenu(mainMenu), gameOver(gameOver) {
     std::any any_pointer = this;
     
     gameLoop->setSceneManager(any_pointer);
     mainMenu->setSceneManager(any_pointer);
+    gameOver->setSceneManager(any_pointer);
     
     scene = GameScene::Menu;
 };
@@ -23,6 +24,9 @@ void SceneManager::runActiveScene() {
             return;
         case (GameScene::Game):
             gameLoop->run();
+            return;
+        case (GameScene::GameOver):
+            gameOver->run();
             return;
         default:
             return;
@@ -38,6 +42,9 @@ std::any SceneManager::getCurrentInputDelegate() {
         case (GameScene::Game):
             anyValue = gameLoop->getInputDelegate();
             return anyValue;
+        case (GameScene::GameOver):
+            anyValue = gameOver->getInputDelegate();
+            return anyValue;
     }
 }
 
@@ -47,4 +54,8 @@ void SceneManager::goToGame() {
 
 void SceneManager::goToMenu() {
     scene = GameScene::Menu;
+}
+
+void SceneManager::goToGameOver() {
+    scene = GameScene::GameOver;
 }

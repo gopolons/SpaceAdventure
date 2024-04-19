@@ -19,8 +19,6 @@ class GameLoop : public InputDelegate, public SceneManagerDelegate {
 public:
     GameLoop(sf::RenderWindow& window);
     
-    void startGame();
-    
     void handleActionButton() override;
     void handleLeftButton() override;
     void handleRightButton() override;
@@ -30,6 +28,9 @@ public:
     void run() override;
     InputDelegate* getInputDelegate() override;
 private:
+    void startGame();
+    void endGame();
+    
     SceneManager* sceneManager;
     
     int gameScore = 0;

@@ -13,6 +13,7 @@
 #include "GameLoop.hpp"
 #include "SceneManager.hpp"
 #include "InputManager.hpp"
+#include "GameOver.hpp"
 
 int main() {
     // Create a window
@@ -24,8 +25,11 @@ int main() {
     // Instantiate a game loop object
     GameLoop game(window);
     
+    // Instantiate a game over object
+    GameOver gameOver(window);
+    
     // Instantiate a scene manager
-    SceneManager sceneManager(&game, &menu);
+    SceneManager sceneManager(&game, &menu, &gameOver);
     
     // Instantiate an input manager object
     InputManager inputManager(&sceneManager);

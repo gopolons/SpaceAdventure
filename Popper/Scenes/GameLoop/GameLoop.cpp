@@ -78,6 +78,23 @@ void GameLoop::updateShipPosition() {
     if (shipPosition.y < screenBottomEdge) {
         shipPosition.y = screenTopEdge;
     }
+    
+    // Iterate through the asteroids vector
+    std::vector<Projectile>::iterator asterIter = asteroids.begin(); // Declaration of vector iterator
+    for (  ; asterIter < asteroids.end(); asterIter++) {
+        // Check if the projectile is inside the position bounds of the asteroid
+        // If yes, remove the asteroid from the vector
+        float topBound = asterIter->currentPosition.y - 25;
+        float leftBound = asterIter->currentPosition.x - 25;
+        
+        sf::Rect<float> asterBoundRect( leftBound, topBound, 50, 50 );
+        sf::Rect<float> shipBoundRect( shipPosition.x - 25, shipPosition.y - 25, 50, 50 );
+        
+        if (asterBoundRect.intersects(shipBoundRect)) {
+            endGame();
+            break;
+        }
+    }
 }
 
 void GameLoop::drawSpaceshipSprite() {
@@ -158,7 +175,7 @@ void GameLoop::drawProjectileSprites() {
         
         // Calculate and update the projectile's position
         sf::Vector2f newPosition;
-        float speed = 0.5;
+        float speed = 2;
         float radianAngle = convertToRadians(iter->angle);
         float newY = currentPosition.y + speed * sin(radianAngle);
         float newX = currentPosition.x + speed * cos(radianAngle);
@@ -365,4 +382,15 @@ void GameLoop::run() {
 
 InputDelegate* GameLoop::getInputDelegate() {
     return (this);
+}
+
+void GameLoop::endGame() {
+    gameScore = 0;
+    shipAngle = 0;
+    sf::Vector2u windowCenter = window.getSize();
+    shipPosition = sf::Vector2f((windowCenter.x / 2), (windowCenter.y / 2));
+    projectiles = {};
+    asteroids = {};
+
+    sceneManager->goToGameOver();
 }

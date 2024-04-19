@@ -20,8 +20,6 @@ class MainMenu : public InputDelegate, public SceneManagerDelegate {
 public:
     MainMenu(sf::RenderWindow& window);
     
-    void drawTitleMenu();
-    
     void handleActionButton() override;
     void handleUpButton() override;
     void handleDownButton() override;
@@ -31,6 +29,8 @@ public:
     void run() override;
     InputDelegate* getInputDelegate() override;
 private:
+    void drawTitleMenu();
+    
     MenuOption currentOption;
     
     SceneManager* sceneManager;

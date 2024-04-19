@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9435AA682BD2EE5300102316 /* GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9435AA662BD2EE5300102316 /* GameOver.cpp */; };
 		947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 947D64B02BA7990D00EA2AB2 /* InputManager.cpp */; };
 		94AE22DD2BCC28B000AC7C13 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AE22DB2BCC28B000AC7C13 /* SceneManager.cpp */; };
 		9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AD568992BA1F0D900B341EF /* main.cpp */; };
@@ -32,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9435AA662BD2EE5300102316 /* GameOver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOver.cpp; sourceTree = "<group>"; };
+		9435AA672BD2EE5300102316 /* GameOver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOver.hpp; sourceTree = "<group>"; };
 		947D64A62BA660BB00EA2AB2 /* Projectile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Projectile.hpp; sourceTree = "<group>"; };
 		947D64A92BA74A1100EA2AB2 /* asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid.png; sourceTree = "<group>"; };
 		947D64B02BA7990D00EA2AB2 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
@@ -75,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9435AA652BD2EE2A00102316 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				9435AA662BD2EE5300102316 /* GameOver.cpp */,
+				9435AA672BD2EE5300102316 /* GameOver.hpp */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
 		947D64A42BA660A600EA2AB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +188,7 @@
 		9AD568B52BA20DEC00B341EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9435AA652BD2EE2A00102316 /* GameOver */,
 				9AD568B82BA210E700B341EF /* GameLoop */,
 				9AD568B62BA20DF300B341EF /* MainMenu */,
 			);
@@ -277,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */,
+				9435AA682BD2EE5300102316 /* GameOver.cpp in Sources */,
 				9AD568B42BA20DE800B341EF /* MainMenu.cpp in Sources */,
 				9AD568BE2BA2146000B341EF /* GameLoop.cpp in Sources */,
 				947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */,

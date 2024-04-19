@@ -17,12 +17,13 @@
 // by other scenes to update the current game state.
 class SceneManager {
 public:
-    SceneManager(SceneManagerDelegate* gameLoop, SceneManagerDelegate* mainMenu);
+    SceneManager(SceneManagerDelegate* gameLoop, SceneManagerDelegate* mainMenu, SceneManagerDelegate* gameOver);
     
     void runActiveScene();
     
     void goToMenu();
     void goToGame();
+    void goToGameOver();
     
     std::any getCurrentInputDelegate();
 private:
@@ -30,6 +31,7 @@ private:
     
     SceneManagerDelegate* gameLoop;
     SceneManagerDelegate* mainMenu;
+    SceneManagerDelegate* gameOver;
 };
 
 #endif /* SceneManager_hpp */
