@@ -214,8 +214,21 @@ void GameLoop::drawAsteroidSprites() {
     // Get the elapsed time and cast it to int
     int elapsedTime = asteroidClock.getElapsedTime().asSeconds();
     
+    // Difficulty settings
+    double difficultyIncreaseRate = 0.05; // Change this to control how quickly difficulty increases
+    double maxDifficulty = 0.95; // Maximum difficulty multiplier, less than 1
+    
+    // Calculate difficulty using a hyperbolic tangent function
+    double difficultyMultiplier = maxDifficulty * std::tanh(difficultyIncreaseRate * gameScore);
+    
+    // Time threshold for adding an asteroid, initially every 5 seconds
+    double timeThreshold = 5 - (5 * difficultyMultiplier);
+    
     // Asteroid should be added every 5 seconds
-    if (elapsedTime > 5) {
+    if (elapsedTime > timeThreshold) {
+        std::cout << "Difficulty multiplier: " << difficultyMultiplier << std::endl;
+        std::cout << "Time threshold: " << difficultyMultiplier << std::endl;
+        
         // Reset the timer
         asteroidClock.restart();
         
