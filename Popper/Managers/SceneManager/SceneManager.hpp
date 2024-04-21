@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "SceneManagerDelegate.hpp"
 #include "GameScene.hpp"
+#include "ScoreManager.hpp"
 #include <any>
 
 // SceneManager object controls currently displayed scene & is used
@@ -23,10 +24,12 @@ public:
     
     void goToMenu();
     void goToGame();
-    void goToGameOver();
+    void goToGameOver(int score);
     
     std::any getCurrentInputDelegate();
 private:
+    ScoreManager scoreManager;
+    
     GameScene scene;
     
     SceneManagerDelegate* gameLoop;

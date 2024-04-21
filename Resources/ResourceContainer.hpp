@@ -13,5 +13,6 @@
 const static std::string FONT_PATH = "/Users/georgypolonskiy/Development/cpp_game/Popper/Resources/Fonts/gohu.ttf";
 const static std::string SPACESHIP_PATH = "/Users/georgypolonskiy/Development/cpp_game/Popper/Resources/Images/spaceship.png";
 const static std::string ASTEROID_PATH = "/Users/georgypolonskiy/Development/cpp_game/Popper/Resources/Images/asteroid.png";
+const static std::string HIGHSCORE_FILE_NAME = "/Users/georgypolonskiy/Development/cpp_game/Popper/Resources/highscore.txt";
 
 #endif /* ResourceContainer_h */

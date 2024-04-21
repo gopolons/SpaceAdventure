@@ -53,9 +53,15 @@ void SceneManager::goToGame() {
 }
 
 void SceneManager::goToMenu() {
+    int highScore = scoreManager.topScore();
+    SceneSetupData data{ highScore };
+    mainMenu->setup(data);
     scene = GameScene::Menu;
 }
 
-void SceneManager::goToGameOver() {
+void SceneManager::goToGameOver(int score) {
+    bool isHighScore = scoreManager.registerGameOver(score);
+    SceneSetupData data = { score, isHighScore };
+    gameOver->setup(data);
     scene = GameScene::GameOver;
 }

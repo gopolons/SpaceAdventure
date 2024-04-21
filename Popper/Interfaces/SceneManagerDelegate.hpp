@@ -10,6 +10,7 @@
 
 #include <any>
 #include "InputDelegate.hpp"
+#include "SceneSetupData.hpp"
 
 // SceneManagerDelegate is an interface used by SceneManager to control the current
 // state of the game. It is implemented by game scenes and contains utility methods
@@ -18,6 +19,7 @@ class SceneManagerDelegate {
 public:
     virtual void setSceneManager(std::any manager) {};
     virtual void run() {};
+    virtual void setup(SceneSetupData data) {};
     virtual InputDelegate* getInputDelegate() { return nullptr; };
 };
 
