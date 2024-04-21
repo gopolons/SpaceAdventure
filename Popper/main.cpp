@@ -9,6 +9,7 @@
 #include <iostream>
 #include <stdlib.h>
 
+#include "ScoreManager.hpp"
 #include "MainMenu.hpp"
 #include "GameLoop.hpp"
 #include "SceneManager.hpp"
@@ -18,6 +19,9 @@
 int main() {
     // Create a window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Popper");
+    
+    // Instantiate a high score manager object
+    ScoreManager manager;
     
     // Instantiate a main menu object
     MainMenu menu(window);
@@ -30,6 +34,7 @@ int main() {
     
     // Instantiate a scene manager
     SceneManager sceneManager(&game, &menu, &gameOver);
+    sceneManager.goToMenu();
     
     // Instantiate an input manager object
     InputManager inputManager(&sceneManager);

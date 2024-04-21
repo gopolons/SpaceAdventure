@@ -22,6 +22,7 @@ public:
     
     void setSceneManager(std::any manager) override;
     void run() override;
+    void setup(SceneSetupData data) override;
     InputDelegate* getInputDelegate() override;
 private:
     SceneManager* sceneManager;
@@ -29,6 +30,10 @@ private:
     sf::RenderWindow& window;
     
     void showEndGameScreen();
+    void reset();
+    
+    int score;
+    bool isHighScore;
     
     sf::Vector2f screenCenter;
 };

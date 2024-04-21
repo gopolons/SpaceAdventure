@@ -10,8 +10,10 @@ The project is in active development.
 - [x] Implement game loop
 - [x] Implement shooting
 - [x] Implement game ending collisions
+- [x] Implement high score
 - [ ] Implement options
-- [ ] Implement high scores
+- [ ] Improve resource handling (look into setting up a compiler toolchain outside of Xcode)
+- [ ] Improve graphical fidelity
 
 ## Screenshots
 

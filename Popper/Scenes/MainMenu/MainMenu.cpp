@@ -27,6 +27,20 @@ void MainMenu::drawTitleMenu() {
         std::cerr << "Failed to load font!" << std::endl;
         return;
     }
+    
+    // Create a highscore display
+    std::string highScoreString = "High score: " + std::to_string(highScore);
+    sf::Color gray = sf::Color::Black;
+    gray.a = 100;
+    sf::Text highScoreText;
+    highScoreText.setFont(font);
+    highScoreText.setString(highScoreString);
+    highScoreText.setCharacterSize(24);
+    highScoreText.setFillColor(gray);
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect highScoreCenter = highScoreText.getLocalBounds();
+    highScoreText.setOrigin(sf::Vector2f((highScoreCenter.width / 2), (highScoreCenter.height / 2)));
 
     // Create a title
     sf::Text title;
@@ -85,9 +99,10 @@ void MainMenu::drawTitleMenu() {
     
     // Get menu elements height
     float titleYPos = window.getSize().y/4;
-    float playButtonYPos = window.getSize().y/3 + 45;
-    float optionsButtonYPos = window.getSize().y/3 + (45 * 2);
-    float exitButtonYPos = window.getSize().y/3 + (45 * 3);
+    float highScoreYPos = window.getSize().y/3;
+    float playButtonYPos = window.getSize().y/2 + 45;
+    float optionsButtonYPos = window.getSize().y/2 + (45 * 2);
+    float exitButtonYPos = window.getSize().y/2 + (45 * 3);
     float indicatorYPos;
     float indicatorXPos = screenCenter.x + 65;
     
@@ -96,6 +111,7 @@ void MainMenu::drawTitleMenu() {
     playButton.setPosition(screenCenter.x, playButtonYPos);
     optionsButton.setPosition(screenCenter.x, optionsButtonYPos);
     exitButton.setPosition(screenCenter.x, exitButtonYPos);
+    highScoreText.setPosition(screenCenter.x, highScoreYPos);
     
     // Position the indicator
     switch (currentOption) {
@@ -119,6 +135,8 @@ void MainMenu::drawTitleMenu() {
     window.draw(exitButton);
     window.draw(indicator);
     
+    if (highScore > 0) window.draw(highScoreText);
+    
     // Display the window contents
     window.display();
 }
@@ -139,6 +157,7 @@ void MainMenu::handleActionButton() {
     switch (currentOption) {
         case (MenuOption::Play):
             sceneManager->goToGame();
+            reset();
             return;
         case (MenuOption::Options):
             // FIXME: IMPLEMENT OPTIONS MENU NAVIGATION
@@ -179,4 +198,13 @@ void MainMenu::handleDownButton() {
 
 void MainMenu::handleEscapeButton() {
     window.close();
+}
+
+void MainMenu::setup(SceneSetupData data) {
+    highScore = data.score;
+}
+
+void MainMenu::reset() {
+    highScore = 0;
+    currentOption = MenuOption::Play;
 }

@@ -27,9 +27,13 @@ public:
     
     void setSceneManager(std::any manager) override;
     void run() override;
+    void setup(SceneSetupData data) override;
     InputDelegate* getInputDelegate() override;
 private:
+    int highScore;
+    
     void drawTitleMenu();
+    void reset();
     
     MenuOption currentOption;
     

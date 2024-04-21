@@ -225,10 +225,7 @@ void GameLoop::drawAsteroidSprites() {
     double timeThreshold = 5 - (5 * difficultyMultiplier);
     
     // Asteroid should be added every 5 seconds
-    if (elapsedTime > timeThreshold) {
-        std::cout << "Difficulty multiplier: " << difficultyMultiplier << std::endl;
-        std::cout << "Time threshold: " << difficultyMultiplier << std::endl;
-        
+    if (elapsedTime > timeThreshold) {        
         // Reset the timer
         asteroidClock.restart();
         
@@ -398,6 +395,8 @@ InputDelegate* GameLoop::getInputDelegate() {
 }
 
 void GameLoop::endGame() {
+    int score = gameScore;
+    
     gameScore = 0;
     shipAngle = 0;
     sf::Vector2u windowCenter = window.getSize();
@@ -405,5 +404,5 @@ void GameLoop::endGame() {
     projectiles = {};
     asteroids = {};
 
-    sceneManager->goToGameOver();
+    sceneManager->goToGameOver(score);
 }

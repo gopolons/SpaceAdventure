@@ -36,6 +36,7 @@ void GameOver::showEndGameScreen() {
     sf::FloatRect titleCenter = title.getLocalBounds();
     title.setOrigin(sf::Vector2f((titleCenter.width / 2), (titleCenter.height / 2)));
     
+    // Create a call to action
     sf::Text cta;
     cta.setFont(font);
     cta.setString("Press action button");
@@ -48,14 +49,44 @@ void GameOver::showEndGameScreen() {
     sf::FloatRect ctaCenter = cta.getLocalBounds();
     cta.setOrigin(sf::Vector2f((ctaCenter.width / 2), (ctaCenter.height / 2)));
     
+    // Create a score display
+    std::string scoreString = "Score: ";
+    scoreString.push_back(score + '0');
+    sf::Text scoreText;
+    scoreText.setFont(font);
+    scoreText.setString(scoreString);
+    scoreText.setCharacterSize(24);
+    scoreText.setFillColor(sf::Color::Black);
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect scoreTextCenter = scoreText.getLocalBounds();
+    scoreText.setOrigin(sf::Vector2f((scoreTextCenter.width / 2), (scoreTextCenter.height / 2)));
+    
+    // Create a high score text
+    sf::Text highScoreText;
+    highScoreText.setFont(font);
+    highScoreText.setString("New high score!");
+    highScoreText.setCharacterSize(24);
+    highScoreText.setFillColor(sf::Color::Black);
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect highScoreTextCenter = highScoreText.getLocalBounds();
+    highScoreText.setOrigin(sf::Vector2f((highScoreTextCenter.width / 2), (highScoreTextCenter.height / 2)));
+    
     float titleYPos = window.getSize().y/4;
-    float ctaYPos = window.getSize().y/3 + 45;
+    float scoreYPos = window.getSize().y/3 + 25;
+    float ctaYPos = window.getSize().y/2 + 45;
     
     title.setPosition(screenCenter.x, titleYPos);
     cta.setPosition(screenCenter.x, ctaYPos);
+    scoreText.setPosition(screenCenter.x, scoreYPos);
+    highScoreText.setPosition(screenCenter.x, scoreYPos + 45);
     
     window.draw(title);
     window.draw(cta);
+    window.draw(scoreText);
+    
+    if (isHighScore) window.draw(highScoreText);
     
     window.display();
 }
@@ -74,4 +105,14 @@ void GameOver::handleActionButton() {
 
 InputDelegate* GameOver::getInputDelegate() {
     return (this);
+}
+
+void GameOver::setup(SceneSetupData data) {
+    score = data.score;
+    isHighScore = data.isHighScore;
+}
+
+void GameOver::reset() {
+    score = 0;
+    isHighScore = false;
 }
