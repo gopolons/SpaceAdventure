@@ -11,7 +11,8 @@
 enum class GameScene {
     Menu,
     Game,
-    GameOver
+    GameOver,
+    SettingsMenu,
 };
 
 #endif /* GameScene_hpp */

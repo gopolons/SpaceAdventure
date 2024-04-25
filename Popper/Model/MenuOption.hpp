@@ -5,8 +5,8 @@
 //  Created by Georgy Polonskiy on 14/04/2024.
 //
 
-#ifndef MenuOption_h
-#define MenuOption_h
+#ifndef MenuOption_hpp
+#define MenuOption_hpp
 
 enum class MenuOption {
     Play,
@@ -14,4 +14,4 @@ enum class MenuOption {
     Exit
 };
 
-#endif /* MenuOption_h */
+#endif /* MenuOption_hpp */
