@@ -10,6 +10,8 @@
 		9435AA682BD2EE5300102316 /* GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9435AA662BD2EE5300102316 /* GameOver.cpp */; };
 		9435AA6C2BD3B13200102316 /* ScoreManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9435AA6A2BD3B13200102316 /* ScoreManager.cpp */; };
 		9435AA732BD3D02200102316 /* FileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9435AA712BD3D02200102316 /* FileManager.cpp */; };
+		9473DDEF2BD992E70014329B /* SettingsMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9473DDED2BD992E70014329B /* SettingsMenu.cpp */; };
+		9473DDF92BD9A17C0014329B /* SettingsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9473DDF72BD9A17C0014329B /* SettingsManager.cpp */; };
 		947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 947D64B02BA7990D00EA2AB2 /* InputManager.cpp */; };
 		94AE22DD2BCC28B000AC7C13 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AE22DB2BCC28B000AC7C13 /* SceneManager.cpp */; };
 		9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AD568992BA1F0D900B341EF /* main.cpp */; };
@@ -43,6 +45,13 @@
 		9435AA712BD3D02200102316 /* FileManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileManager.cpp; sourceTree = "<group>"; };
 		9435AA722BD3D02200102316 /* FileManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileManager.hpp; sourceTree = "<group>"; };
 		9435AA752BD3D3D100102316 /* highscore.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highscore.txt; sourceTree = "<group>"; };
+		9473DDED2BD992E70014329B /* SettingsMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsMenu.cpp; sourceTree = "<group>"; };
+		9473DDEE2BD992E70014329B /* SettingsMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SettingsMenu.hpp; sourceTree = "<group>"; };
+		9473DDF12BD9971B0014329B /* SettingsOption.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SettingsOption.hpp; sourceTree = "<group>"; };
+		9473DDF42BD99B630014329B /* DifficultyLevel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DifficultyLevel.hpp; sourceTree = "<group>"; };
+		9473DDF72BD9A17C0014329B /* SettingsManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsManager.cpp; sourceTree = "<group>"; };
+		9473DDF82BD9A17C0014329B /* SettingsManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SettingsManager.hpp; sourceTree = "<group>"; };
+		9473DDFB2BD9B6680014329B /* settings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = settings.txt; sourceTree = "<group>"; };
 		947D64A62BA660BB00EA2AB2 /* Projectile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Projectile.hpp; sourceTree = "<group>"; };
 		947D64A92BA74A1100EA2AB2 /* asteroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asteroid.png; sourceTree = "<group>"; };
 		947D64B02BA7990D00EA2AB2 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
@@ -121,6 +130,24 @@
 			path = FileManager;
 			sourceTree = "<group>";
 		};
+		9473DDEC2BD992CF0014329B /* SettingsMenu */ = {
+			isa = PBXGroup;
+			children = (
+				9473DDED2BD992E70014329B /* SettingsMenu.cpp */,
+				9473DDEE2BD992E70014329B /* SettingsMenu.hpp */,
+			);
+			path = SettingsMenu;
+			sourceTree = "<group>";
+		};
+		9473DDF62BD9A14C0014329B /* SettingsManager */ = {
+			isa = PBXGroup;
+			children = (
+				9473DDF72BD9A17C0014329B /* SettingsManager.cpp */,
+				9473DDF82BD9A17C0014329B /* SettingsManager.hpp */,
+			);
+			path = SettingsManager;
+			sourceTree = "<group>";
+		};
 		947D64A42BA660A600EA2AB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +155,8 @@
 				947D64B52BA7A2AD00EA2AB2 /* GameScene.hpp */,
 				9435AA6F2BD3C0D900102316 /* SceneSetupData.hpp */,
 				94EAC02B2BCC7AF200BFAE20 /* MenuOption.hpp */,
+				9473DDF12BD9971B0014329B /* SettingsOption.hpp */,
+				9473DDF42BD99B630014329B /* DifficultyLevel.hpp */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +164,7 @@
 		947D64AA2BA798AC00EA2AB2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9473DDF62BD9A14C0014329B /* SettingsManager */,
 				9435AA692BD3B12200102316 /* ScoreManager */,
 				94AE22DA2BCC288E00AC7C13 /* SceneManager */,
 				947D64AF2BA798EB00EA2AB2 /* InputManager */,
@@ -216,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				9435AA752BD3D3D100102316 /* highscore.txt */,
+				9473DDFB2BD9B6680014329B /* settings.txt */,
 				9AD568B72BA20EDB00B341EF /* ResourceContainer.hpp */,
 				9AD568BA2BA2141300B341EF /* Images */,
 				9AD568B92BA2140000B341EF /* Fonts */,
@@ -226,6 +257,7 @@
 		9AD568B52BA20DEC00B341EF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9473DDEC2BD992CF0014329B /* SettingsMenu */,
 				9435AA652BD2EE2A00102316 /* GameOver */,
 				9AD568B82BA210E700B341EF /* GameLoop */,
 				9AD568B62BA20DF300B341EF /* MainMenu */,
@@ -330,8 +362,10 @@
 				9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */,
 				9435AA682BD2EE5300102316 /* GameOver.cpp in Sources */,
 				9AD568B42BA20DE800B341EF /* MainMenu.cpp in Sources */,
+				9473DDEF2BD992E70014329B /* SettingsMenu.cpp in Sources */,
 				9435AA732BD3D02200102316 /* FileManager.cpp in Sources */,
 				9AD568BE2BA2146000B341EF /* GameLoop.cpp in Sources */,
+				9473DDF92BD9A17C0014329B /* SettingsManager.cpp in Sources */,
 				947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */,
 				9435AA6C2BD3B13200102316 /* ScoreManager.cpp in Sources */,
 				94AE22DD2BCC28B000AC7C13 /* SceneManager.cpp in Sources */,

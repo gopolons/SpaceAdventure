@@ -160,7 +160,8 @@ void MainMenu::handleActionButton() {
             reset();
             return;
         case (MenuOption::Options):
-            // FIXME: IMPLEMENT OPTIONS MENU NAVIGATION
+            sceneManager->goToSettings();
+            reset();
             return;
         case (MenuOption::Exit):
             window.close();

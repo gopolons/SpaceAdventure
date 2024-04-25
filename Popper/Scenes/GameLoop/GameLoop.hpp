@@ -26,6 +26,7 @@ public:
     
     void setSceneManager(std::any manager) override;
     void run() override;
+    void setup(SceneSetupData data) override;
     InputDelegate* getInputDelegate() override;
 private:
     void startGame();
@@ -34,6 +35,7 @@ private:
     SceneManager* sceneManager;
     
     int gameScore = 0;
+    DifficultyLevel difficulty;
     
     sf::RenderWindow& window;
     

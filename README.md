@@ -11,8 +11,9 @@ The project is in active development.
 - [x] Implement shooting
 - [x] Implement game ending collisions
 - [x] Implement high score
-- [ ] Implement options
+- [x] Implement options
 - [ ] Improve resource handling (look into setting up a compiler toolchain outside of Xcode)
+- [ ] Implement persistent game state (resume game / start new)
 - [ ] Improve graphical fidelity
 
 ## Screenshots

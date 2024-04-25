@@ -15,13 +15,14 @@
 #include "SceneManager.hpp"
 #include "InputManager.hpp"
 #include "GameOver.hpp"
+#include "SettingsMenu.hpp"
 
 int main() {
     // Create a window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Popper");
     
-    // Instantiate a high score manager object
-    ScoreManager manager;
+    // Instantiate a settings object
+    SettingsMenu settings(window);
     
     // Instantiate a main menu object
     MainMenu menu(window);
@@ -33,7 +34,7 @@ int main() {
     GameOver gameOver(window);
     
     // Instantiate a scene manager
-    SceneManager sceneManager(&game, &menu, &gameOver);
+    SceneManager sceneManager(&game, &menu, &gameOver, &settings);
     sceneManager.goToMenu();
     
     // Instantiate an input manager object

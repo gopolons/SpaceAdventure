@@ -215,7 +215,18 @@ void GameLoop::drawAsteroidSprites() {
     int elapsedTime = asteroidClock.getElapsedTime().asSeconds();
     
     // Difficulty settings
-    double difficultyIncreaseRate = 0.05; // Change this to control how quickly difficulty increases
+    double difficultyIncreaseRate; // Change this to control how quickly difficulty increases
+    
+    // Set difficulty multiplier based on the difficulty level
+    switch (difficulty) {
+        case DifficultyLevel::Easy:
+            difficultyIncreaseRate = 0.05;
+        case DifficultyLevel::Medium:
+            difficultyIncreaseRate = 0.1;
+        case DifficultyLevel::Hard:
+            difficultyIncreaseRate = 0.15;
+    }
+    
     double maxDifficulty = 0.95; // Maximum difficulty multiplier, less than 1
     
     // Calculate difficulty using a hyperbolic tangent function
@@ -403,6 +414,11 @@ void GameLoop::endGame() {
     shipPosition = sf::Vector2f((windowCenter.x / 2), (windowCenter.y / 2));
     projectiles = {};
     asteroids = {};
+    difficulty = DifficultyLevel::Easy;
 
     sceneManager->goToGameOver(score);
+}
+
+void GameLoop::setup(SceneSetupData data) {
+    difficulty = data.difficulty;
 }

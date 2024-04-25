@@ -7,12 +7,13 @@
 
 #include "SceneManager.hpp"
 
-SceneManager::SceneManager(SceneManagerDelegate* gameLoop, SceneManagerDelegate* mainMenu, SceneManagerDelegate* gameOver) : gameLoop(gameLoop), mainMenu(mainMenu), gameOver(gameOver) {
+SceneManager::SceneManager(SceneManagerDelegate* gameLoop, SceneManagerDelegate* mainMenu, SceneManagerDelegate* gameOver, SceneManagerDelegate* settings) : gameLoop(gameLoop), mainMenu(mainMenu), gameOver(gameOver), settingsMenu(settings) {
     std::any any_pointer = this;
     
     gameLoop->setSceneManager(any_pointer);
     mainMenu->setSceneManager(any_pointer);
     gameOver->setSceneManager(any_pointer);
+    settingsMenu->setSceneManager(any_pointer);
     
     scene = GameScene::Menu;
 };
@@ -28,7 +29,8 @@ void SceneManager::runActiveScene() {
         case (GameScene::GameOver):
             gameOver->run();
             return;
-        default:
+        case (GameScene::SettingsMenu):
+            settingsMenu->run();
             return;
     }
 }
@@ -44,6 +46,9 @@ std::any SceneManager::getCurrentInputDelegate() {
             return anyValue;
         case (GameScene::GameOver):
             anyValue = gameOver->getInputDelegate();
+            return anyValue;
+        case (GameScene::SettingsMenu):
+            anyValue = settingsMenu->getInputDelegate();
             return anyValue;
     }
 }
@@ -64,4 +69,22 @@ void SceneManager::goToGameOver(int score) {
     SceneSetupData data = { score, isHighScore };
     gameOver->setup(data);
     scene = GameScene::GameOver;
+}
+
+void SceneManager::saveSettings(SceneSetupData data) {
+    settingsManager.setDifficulty(data.difficulty);
+    
+    if (data.reset) {
+        settingsManager.resetDifficulty();
+        scoreManager.resetScore();
+    }
+    scene = GameScene::Menu;
+}
+
+void SceneManager::goToSettings() {
+    DifficultyLevel currentDifficulty = settingsManager.currentDifficulty();
+    int highScore = scoreManager.topScore();
+    SceneSetupData data{ highScore, false, currentDifficulty, false };
+    settingsMenu->setup(data);
+    scene = GameScene::SettingsMenu;
 }
