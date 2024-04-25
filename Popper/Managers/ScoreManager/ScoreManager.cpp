@@ -30,3 +30,7 @@ bool ScoreManager::registerGameOver(int score) {
         return false;
     }
 }
+
+void ScoreManager::resetScore() {
+    fileManager.rewriteFile(HIGHSCORE_FILE_NAME, std::to_string(0));
+}

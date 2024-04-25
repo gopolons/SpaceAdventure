@@ -18,6 +18,9 @@ public:
     
     // takes in a new score and returns true if its the new high score
     bool registerGameOver(int score);
+    
+    // resets the score
+    void resetScore();
 private:
     FileManager fileManager;
 };
