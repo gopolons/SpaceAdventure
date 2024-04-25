@@ -8,10 +8,15 @@
 #ifndef SceneSetupData_hpp
 #define SceneSetupData_hpp
 
+#import "DifficultyLevel.hpp"
+
 class SceneSetupData {
 public:
     int score;
     bool isHighScore;
+    
+    DifficultyLevel difficulty;
+    bool reset;
 };
 
 #endif /* SceneSetupData_hpp */
