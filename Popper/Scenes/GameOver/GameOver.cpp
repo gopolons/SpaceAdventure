@@ -50,8 +50,7 @@ void GameOver::showEndGameScreen() {
     cta.setOrigin(sf::Vector2f((ctaCenter.width / 2), (ctaCenter.height / 2)));
     
     // Create a score display
-    std::string scoreString = "Score: ";
-    scoreString.push_back(score + '0');
+    std::string scoreString = "Score: " + std::to_string(score);
     sf::Text scoreText;
     scoreText.setFont(font);
     scoreText.setString(scoreString);
