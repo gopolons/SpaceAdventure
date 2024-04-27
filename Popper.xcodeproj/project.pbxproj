@@ -14,6 +14,12 @@
 		9473DDF92BD9A17C0014329B /* SettingsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9473DDF72BD9A17C0014329B /* SettingsManager.cpp */; };
 		947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 947D64B02BA7990D00EA2AB2 /* InputManager.cpp */; };
 		94AE22DD2BCC28B000AC7C13 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94AE22DB2BCC28B000AC7C13 /* SceneManager.cpp */; };
+		94C638352BDD6B3B00B7BC25 /* ResourceContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94C638342BDD6B3B00B7BC25 /* ResourceContainer.cpp */; };
+		94C638362BDD6CBA00B7BC25 /* highscore.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9435AA752BD3D3D100102316 /* highscore.txt */; };
+		94C638372BDD6CBA00B7BC25 /* settings.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9473DDFB2BD9B6680014329B /* settings.txt */; };
+		94C638382BDD6CBA00B7BC25 /* asteroid.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 947D64A92BA74A1100EA2AB2 /* asteroid.png */; };
+		94C638392BDD6CBA00B7BC25 /* spaceship.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9AD568BB2BA2141E00B341EF /* spaceship.png */; };
+		94C6383A2BDD6CBA00B7BC25 /* gohu.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94AE22D92BCC27EE00AC7C13 /* gohu.ttf */; };
 		9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AD568992BA1F0D900B341EF /* main.cpp */; };
 		9AD568A62BA1F0F400B341EF /* libsfml-graphics.2.6.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD568A12BA1F0F400B341EF /* libsfml-graphics.2.6.1.dylib */; };
 		9AD568A72BA1F0F400B341EF /* libsfml-window.2.6.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD568A22BA1F0F400B341EF /* libsfml-window.2.6.1.dylib */; };
@@ -31,6 +37,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				94C638362BDD6CBA00B7BC25 /* highscore.txt in CopyFiles */,
+				94C638372BDD6CBA00B7BC25 /* settings.txt in CopyFiles */,
+				94C638382BDD6CBA00B7BC25 /* asteroid.png in CopyFiles */,
+				94C638392BDD6CBA00B7BC25 /* spaceship.png in CopyFiles */,
+				94C6383A2BDD6CBA00B7BC25 /* gohu.ttf in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +72,7 @@
 		94AE22D92BCC27EE00AC7C13 /* gohu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gohu.ttf; sourceTree = "<group>"; };
 		94AE22DB2BCC28B000AC7C13 /* SceneManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		94AE22DC2BCC28B000AC7C13 /* SceneManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
+		94C638342BDD6B3B00B7BC25 /* ResourceContainer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceContainer.cpp; sourceTree = "<group>"; };
 		94EAC02A2BCC38FA00BFAE20 /* SceneManagerDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneManagerDelegate.hpp; sourceTree = "<group>"; };
 		94EAC02B2BCC7AF200BFAE20 /* MenuOption.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuOption.hpp; sourceTree = "<group>"; };
 		9AD568962BA1F0D900B341EF /* Popper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Popper; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +82,6 @@
 		9AD568A32BA1F0F400B341EF /* libsfml-network.2.6.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.6.1.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/2.6.1/lib/libsfml-network.2.6.1.dylib"; sourceTree = "<group>"; };
 		9AD568A42BA1F0F400B341EF /* libsfml-audio.2.6.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.6.1.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/2.6.1/lib/libsfml-audio.2.6.1.dylib"; sourceTree = "<group>"; };
 		9AD568A52BA1F0F400B341EF /* libsfml-system.2.6.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.6.1.dylib"; path = "../../../../../opt/homebrew/Cellar/sfml/2.6.1/lib/libsfml-system.2.6.1.dylib"; sourceTree = "<group>"; };
-		9AD568AC2BA1F1F700B341EF /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		9AD568B22BA20DE800B341EF /* MainMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
 		9AD568B32BA20DE800B341EF /* MainMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainMenu.hpp; sourceTree = "<group>"; };
 		9AD568B72BA20EDB00B341EF /* ResourceContainer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourceContainer.hpp; sourceTree = "<group>"; };
@@ -116,6 +127,7 @@
 		9435AA702BD3D01100102316 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				94C638332BDD6AFC00B7BC25 /* ResourceContainer */,
 				9435AA742BD3D02600102316 /* FileManager */,
 			);
 			path = Utility;
@@ -199,6 +211,15 @@
 			path = SceneManager;
 			sourceTree = "<group>";
 		};
+		94C638332BDD6AFC00B7BC25 /* ResourceContainer */ = {
+			isa = PBXGroup;
+			children = (
+				9AD568B72BA20EDB00B341EF /* ResourceContainer.hpp */,
+				94C638342BDD6B3B00B7BC25 /* ResourceContainer.cpp */,
+			);
+			path = ResourceContainer;
+			sourceTree = "<group>";
+		};
 		9AD5688D2BA1F0D900B341EF = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +268,6 @@
 			children = (
 				9435AA752BD3D3D100102316 /* highscore.txt */,
 				9473DDFB2BD9B6680014329B /* settings.txt */,
-				9AD568B72BA20EDB00B341EF /* ResourceContainer.hpp */,
 				9AD568BA2BA2141300B341EF /* Images */,
 				9AD568B92BA2140000B341EF /* Fonts */,
 			);
@@ -286,7 +306,6 @@
 		9AD568B92BA2140000B341EF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				9AD568AC2BA1F1F700B341EF /* arial.ttf */,
 				94AE22D92BCC27EE00AC7C13 /* gohu.ttf */,
 			);
 			path = Fonts;
@@ -365,6 +384,7 @@
 				9473DDEF2BD992E70014329B /* SettingsMenu.cpp in Sources */,
 				9435AA732BD3D02200102316 /* FileManager.cpp in Sources */,
 				9AD568BE2BA2146000B341EF /* GameLoop.cpp in Sources */,
+				94C638352BDD6B3B00B7BC25 /* ResourceContainer.cpp in Sources */,
 				9473DDF92BD9A17C0014329B /* SettingsManager.cpp in Sources */,
 				947D64B22BA7990D00EA2AB2 /* InputManager.cpp in Sources */,
 				9435AA6C2BD3B13200102316 /* ScoreManager.cpp in Sources */,
@@ -520,6 +540,7 @@
 					"$(inherited)",
 					/opt/homebrew/Cellar/sfml/2.6.1/lib,
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

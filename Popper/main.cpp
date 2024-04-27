@@ -16,8 +16,13 @@
 #include "InputManager.hpp"
 #include "GameOver.hpp"
 #include "SettingsMenu.hpp"
+#include "ResourceContainer.hpp"
 
-int main() {
+int main(int argc, char* argv[]) {
+    // Update resource container paths
+    std::string basePath = argv[0];
+    updateResourcePaths(basePath);
+    
     // Create a window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Popper");
     

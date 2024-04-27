@@ -12,7 +12,9 @@ The project is in active development.
 - [x] Implement game ending collisions
 - [x] Implement high score
 - [x] Implement options
-- [ ] Improve resource handling (look into setting up a compiler toolchain outside of Xcode)
+- [x] Improve resource handling
+- [ ] Implement difficulty improvements (asteroids should have variable speed)
+- [ ] Look into setting up a compiler toolchain outside of Xcode
 - [ ] Implement persistent game state (resume game / start new)
 - [ ] Improve graphical fidelity
 
