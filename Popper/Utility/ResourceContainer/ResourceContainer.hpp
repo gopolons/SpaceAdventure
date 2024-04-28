@@ -15,6 +15,7 @@ extern std::string SPACESHIP_PATH;
 extern std::string ASTEROID_PATH;
 extern std::string HIGHSCORE_FILE_NAME;
 extern std::string SETTINGS_FILE_NAME;
+extern std::string PROMPT_FILE_NAME;
 
 void updateResourcePaths(std::string basePath);
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94248D682BDD7A0B009891B0 /* MenuPrompt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94248D672BDD7A0B009891B0 /* MenuPrompt.cpp */; };
+		94248D6A2BDD81B2009891B0 /* prompts.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94248D692BDD804E009891B0 /* prompts.txt */; };
 		9435AA682BD2EE5300102316 /* GameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9435AA662BD2EE5300102316 /* GameOver.cpp */; };
 		9435AA6C2BD3B13200102316 /* ScoreManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9435AA6A2BD3B13200102316 /* ScoreManager.cpp */; };
 		9435AA732BD3D02200102316 /* FileManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9435AA712BD3D02200102316 /* FileManager.cpp */; };
@@ -37,6 +39,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				94248D6A2BDD81B2009891B0 /* prompts.txt in CopyFiles */,
 				94C638362BDD6CBA00B7BC25 /* highscore.txt in CopyFiles */,
 				94C638372BDD6CBA00B7BC25 /* settings.txt in CopyFiles */,
 				94C638382BDD6CBA00B7BC25 /* asteroid.png in CopyFiles */,
@@ -48,6 +51,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		94248D642BDD78EA009891B0 /* MenuPrompt.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuPrompt.hpp; sourceTree = "<group>"; };
+		94248D672BDD7A0B009891B0 /* MenuPrompt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuPrompt.cpp; sourceTree = "<group>"; };
+		94248D692BDD804E009891B0 /* prompts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prompts.txt; sourceTree = "<group>"; };
 		9435AA662BD2EE5300102316 /* GameOver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOver.cpp; sourceTree = "<group>"; };
 		9435AA672BD2EE5300102316 /* GameOver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOver.hpp; sourceTree = "<group>"; };
 		9435AA6A2BD3B13200102316 /* ScoreManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreManager.cpp; sourceTree = "<group>"; };
@@ -106,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94248D662BDD79FB009891B0 /* MenuPrompt */ = {
+			isa = PBXGroup;
+			children = (
+				94248D642BDD78EA009891B0 /* MenuPrompt.hpp */,
+				94248D672BDD7A0B009891B0 /* MenuPrompt.cpp */,
+			);
+			path = MenuPrompt;
+			sourceTree = "<group>";
+		};
 		9435AA652BD2EE2A00102316 /* GameOver */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +142,7 @@
 		9435AA702BD3D01100102316 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				94248D662BDD79FB009891B0 /* MenuPrompt */,
 				94C638332BDD6AFC00B7BC25 /* ResourceContainer */,
 				9435AA742BD3D02600102316 /* FileManager */,
 			);
@@ -267,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				9435AA752BD3D3D100102316 /* highscore.txt */,
+				94248D692BDD804E009891B0 /* prompts.txt */,
 				9473DDFB2BD9B6680014329B /* settings.txt */,
 				9AD568BA2BA2141300B341EF /* Images */,
 				9AD568B92BA2140000B341EF /* Fonts */,
@@ -380,6 +397,7 @@
 			files = (
 				9AD5689A2BA1F0D900B341EF /* main.cpp in Sources */,
 				9435AA682BD2EE5300102316 /* GameOver.cpp in Sources */,
+				94248D682BDD7A0B009891B0 /* MenuPrompt.cpp in Sources */,
 				9AD568B42BA20DE800B341EF /* MainMenu.cpp in Sources */,
 				9473DDEF2BD992E70014329B /* SettingsMenu.cpp in Sources */,
 				9435AA732BD3D02200102316 /* FileManager.cpp in Sources */,
@@ -522,6 +540,7 @@
 					"$(inherited)",
 					/opt/homebrew/Cellar/sfml/2.6.1/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -540,7 +559,8 @@
 					"$(inherited)",
 					/opt/homebrew/Cellar/sfml/2.6.1/lib,
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

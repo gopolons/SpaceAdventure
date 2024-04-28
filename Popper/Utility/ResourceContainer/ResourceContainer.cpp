@@ -13,6 +13,7 @@ std::string SPACESHIP_PATH = "spaceship.png";
 std::string ASTEROID_PATH = "asteroid.png";
 std::string HIGHSCORE_FILE_NAME = "highscore.txt";
 std::string SETTINGS_FILE_NAME = "settings.txt";
+std::string PROMPT_FILE_NAME = "prompts.txt";
 
 // Function for removing the executable name from the resource path
 std::string removeExecutableFromPath(std::string fullPath) {
@@ -36,4 +37,5 @@ void updateResourcePaths(std::string basePath) {
     ASTEROID_PATH = BASE_PATH + ASTEROID_PATH;
     HIGHSCORE_FILE_NAME = BASE_PATH + HIGHSCORE_FILE_NAME;
     SETTINGS_FILE_NAME = BASE_PATH + SETTINGS_FILE_NAME;
+    PROMPT_FILE_NAME = BASE_PATH + PROMPT_FILE_NAME;
 }

@@ -14,6 +14,7 @@
 #include "SceneManagerDelegate.hpp"
 #include "SceneManager.hpp"
 #include "MenuOption.hpp"
+#include "MenuPrompt.hpp"
 #include <any>
 
 class MainMenu : public InputDelegate, public SceneManagerDelegate {
@@ -30,6 +31,8 @@ public:
     void setup(SceneSetupData data) override;
     InputDelegate* getInputDelegate() override;
 private:
+    MenuPrompt prompt;
+    
     int highScore;
     
     void drawTitleMenu();

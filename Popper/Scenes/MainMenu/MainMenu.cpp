@@ -53,6 +53,20 @@ void MainMenu::drawTitleMenu() {
     sf::FloatRect titleCenter = title.getLocalBounds();
     title.setOrigin(sf::Vector2f((titleCenter.width / 2), (titleCenter.height / 2)));
     
+    // Create a prompt
+    sf::Text menuPrompt;
+    menuPrompt.setFont(font);
+    menuPrompt.setString(prompt.text);
+    menuPrompt.setCharacterSize(24);
+    menuPrompt.setFillColor(prompt.color);
+    sf::Vector2f scale = menuPrompt.getScale();
+    menuPrompt.setScale(scale.x * prompt.getZoomValue(), scale.y * prompt.getZoomValue());
+    
+    // Position the text in the middle of local bounds
+    sf::FloatRect menuPromptCenter = menuPrompt.getLocalBounds();
+    menuPrompt.setOrigin(sf::Vector2f((menuPromptCenter.width / 2), (menuPromptCenter.height / 2)));
+    menuPrompt.setRotation(-30);
+    
     // Create a game button
     sf::Text playButton;
     playButton.setFont(font);
@@ -99,6 +113,7 @@ void MainMenu::drawTitleMenu() {
     
     // Get menu elements height
     float titleYPos = window.getSize().y/4;
+    float menuPromptYPos = window.getSize().y/4 + 50;
     float highScoreYPos = window.getSize().y/3;
     float playButtonYPos = window.getSize().y/2 + 45;
     float optionsButtonYPos = window.getSize().y/2 + (45 * 2);
@@ -112,6 +127,7 @@ void MainMenu::drawTitleMenu() {
     optionsButton.setPosition(screenCenter.x, optionsButtonYPos);
     exitButton.setPosition(screenCenter.x, exitButtonYPos);
     highScoreText.setPosition(screenCenter.x, highScoreYPos);
+    menuPrompt.setPosition(screenCenter.x + 150, menuPromptYPos);
     
     // Position the indicator
     switch (currentOption) {
@@ -134,6 +150,7 @@ void MainMenu::drawTitleMenu() {
     window.draw(optionsButton);
     window.draw(exitButton);
     window.draw(indicator);
+    window.draw(menuPrompt);
     
     if (highScore > 0) window.draw(highScoreText);
     
@@ -203,6 +220,7 @@ void MainMenu::handleEscapeButton() {
 
 void MainMenu::setup(SceneSetupData data) {
     highScore = data.score;
+    prompt = MenuPrompt();
 }
 
 void MainMenu::reset() {
